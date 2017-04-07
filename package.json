@@ -1,6 +1,6 @@
 {
   "name": "@sparkbox/downpour",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Sparkbox implementation of drizzle-builder",
   "engines": {
     "node": "^6.9.1"

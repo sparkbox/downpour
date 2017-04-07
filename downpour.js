@@ -54,5 +54,5 @@ module.exports = function patterns(opts, callback) {
   }).catch(err => console.log('err', err));
 
   console.log('Copy: css/drizzle.css', opts.dest.css);
-  shelljs.cp('node_modules/downpour/css/drizzle.css', opts.dest.css);
+  shelljs.cp('node_modules/@sparkbox/downpour/css/drizzle.css', opts.dest.css);
 };
