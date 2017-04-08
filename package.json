@@ -1,9 +1,9 @@
 {
   "name": "@sparkbox/downpour",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Sparkbox implementation of drizzle-builder",
   "engines": {
-    "node": "^6.9.1"
+    "node": ">=6.9.1"
   },
   "main": "downpour.js",
   "directories": {
