@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const inform = require('./lib/inform');
 const drizzle = require('drizzle-builder');
 const helpers = require('@cloudfour/hbs-helpers');
@@ -53,6 +54,8 @@ module.exports = function patterns(opts, callback) {
     if (callback) callback();
   }).catch(err => console.log('err', err));
 
-  console.log('Copy: css/drizzle.css', opts.dest.css);
-  shelljs.cp('node_modules/@sparkbox/downpour/css/drizzle.css', opts.dest.css);
+  shelljs.mkdir('-p', path.resolve('.', opts.dest.css));
+  shelljs.cp(path.resolve(__dirname, 'css/drizzle.css'), path.resolve('.', opts.dest.css));
+  shelljs.mkdir(path.resolve('.', opts.dest.js));
+  shelljs.cp(path.resolve(__dirname, 'dist/drizzle.js'), path.resolve('.', opts.dest.js));
 };
