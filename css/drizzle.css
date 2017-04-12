@@ -395,12 +395,6 @@ pre {
   position: relative;
 }
 
-.drizzle-Layout-body,
-.drizzle-Item-notes p,
-.drizzle-Content-main > p {
-  font-family: sans-serif;
-}
-
 .drizzle-Content-main h1:not(:first-child),
 .drizzle-Content-main h2:not(:first-child),
 .drizzle-Content-main h3:not(:first-child),
