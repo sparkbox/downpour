@@ -7,8 +7,9 @@ const helpers = require('@cloudfour/hbs-helpers');
 const assembleHelpers = require('handlebars-helpers');
 const ifProd = require('@sparkbox/if-prod');
 const shelljs = require('shelljs');
+const _ = require('lodash');
 
-const options = {
+const defaultOptions = {
   beautifier: {
     /* eslint-disable camelcase */
     indent_char: ' ',
@@ -31,7 +32,7 @@ Object.assign(helpers, { ifProd });
 Object.assign(helpers, { is: assembleHelpers().is });
 Object.assign(helpers, { isnt: assembleHelpers().isnt });
 Object.assign(helpers, { split: assembleHelpers().split });
-Object.assign(options, { helpers });
+Object.assign(defaultOptions, { helpers });
 
 function printUpdatedFiles(tree, depth = 1) {
   if (depth > 5) return;
@@ -46,9 +47,9 @@ function printUpdatedFiles(tree, depth = 1) {
 
 module.exports = function patterns(opts, callback) {
   inform.start('☔️');
-  Object.assign(options, opts);
+  _.defaultsDeep(opts, defaultOptions);
 
-  drizzle(options).then((data) => {
+  drizzle(opts).then((data) => {
     inform.msg('\nGenerated Templates\n');
     printUpdatedFiles(data);
     if (callback) callback();
