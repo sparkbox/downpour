@@ -36,3 +36,10 @@ downpour(opts, cb);
 
 [db]: https://www.npmjs.com/package/drizzle-builder
 [assemble]: https://github.com/helpers/handlebars-helpers
+
+
+## Publishing to NPM
+
+1. Update the version number in `package.json` using [semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
+1. Run `npm install` to update `package-lock.json` and commit both files.
+1. Pull down the latest version of master and run `npm publish`.
