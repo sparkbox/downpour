@@ -42,7 +42,7 @@
     "colors": "^1.1.2",
     "deep-extend": "^0.6.0",
     "drizzle-builder": "^0.0.10",
-    "eslint": "^3.9.1",
+    "eslint": "^7.29.0",
     "eslint-config-sparkbox": "^0.3.0",
     "front-matter": "^2.1.0",
     "globby": "^6.1.0",
@@ -52,7 +52,7 @@
     "mkdirp": "^0.5.1",
     "pa11y": "^4.0.1",
     "prismjs": "^1.6.0",
-    "shelljs": "^0.7.7",
+    "shelljs": "^0.8.4",
     "yamljs": "^0.2.8"
   },
   "devDependencies": {
