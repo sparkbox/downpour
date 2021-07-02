@@ -1,6 +1,7 @@
-'use strict';
-
 import 'prismjs';
+// The drizzle CSS that's copied to the drizzle output directory. This is imported in this
+// file so it can be transpiled and included in our dist directory.
+import '../css/drizzle.scss';
 
 const dom = {};
 
@@ -10,8 +11,8 @@ dom.navToggle = dom.nav.querySelector('a[href="#nav"]');
 dom.navLinks = dom.navMenu.querySelectorAll('a');
 
 function setActiveNavItem(pathname) {
-  const noIndex = str => str.replace(/index\.html$/, '');
-  const isMatch = a => noIndex(a.pathname) === noIndex(pathname);
+  const noIndex = (str) => str.replace(/index\.html$/, '');
+  const isMatch = (a) => noIndex(a.pathname) === noIndex(pathname);
   const item = Array.from(dom.navLinks).find(isMatch);
   if (item) {
     item.classList.add('is-active');

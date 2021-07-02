@@ -1,13 +1,12 @@
-'use strict';
-
-const path = require('path');
-const inform = require('./lib/inform');
-const drizzle = require('drizzle-builder');
-const helpers = require('@cloudfour/hbs-helpers');
-const assembleHelpers = require('handlebars-helpers');
-const ifProd = require('@sparkbox/if-prod');
-const shelljs = require('shelljs');
-const _ = require('lodash');
+import path from 'path';
+import drizzle from 'drizzle-builder';
+import helpers from '@cloudfour/hbs-helpers';
+import assembleHelpers from 'handlebars-helpers';
+import ifProd from '@sparkbox/if-prod';
+import shelljs from 'shelljs';
+import _ from 'lodash';
+import inform from './inform';
+import pkg from '../../package.json';
 
 const defaultOptions = {
   beautifier: {
@@ -39,9 +38,9 @@ function printUpdatedFiles(tree, depth = 1) {
   if (tree.url) {
     inform.msg(`${tree.url}`);
   } else if (tree instanceof Object) {
-    for (const key of Object.keys(tree)) {
+    Object.keys(tree).forEach((key) => {
       printUpdatedFiles(tree[key], depth + 1);
-    }
+    });
   }
 }
 
@@ -53,10 +52,10 @@ module.exports = function patterns(opts, callback) {
     inform.msg('\nGenerated Templates\n');
     printUpdatedFiles(data);
     if (callback) callback();
-  }).catch(err => console.log('err', err));
+  }).catch((err) => console.log('err', err));
 
   shelljs.mkdir('-p', path.resolve('.', opts.dest.css));
-  shelljs.cp(path.resolve(__dirname, 'css/drizzle.css'), path.resolve('.', opts.dest.css));
+  shelljs.cp(path.resolve(`${__dirname}/../`, pkg.mainDrizzleCSS), path.resolve('.', opts.dest.css));
   shelljs.mkdir(path.resolve('.', opts.dest.js));
-  shelljs.cp(path.resolve(__dirname, 'dist/drizzle.js'), path.resolve('.', opts.dest.js));
+  shelljs.cp(path.resolve(`${__dirname}/../`, pkg.mainDrizzleJS), path.resolve('.', opts.dest.js));
 };

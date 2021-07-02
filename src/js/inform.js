@@ -1,6 +1,4 @@
-'use strict';
-
-const colors = require('colors');
+import colors from 'colors';
 
 const timer = {
   startTime: null,
@@ -18,7 +16,7 @@ const timer = {
   },
 };
 
-module.exports = {
+export default {
   start(msg) {
     timer.start();
     console.log('\n');
