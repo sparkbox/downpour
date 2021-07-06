@@ -33,11 +33,10 @@ downpour(opts, cb);
 
 ## Publishing to NPM
 
-1. Update the version number in `package.json` using [semantic versioning][semantic-versioning].
-1. Run `npm install` to update `package-lock.json` and commit both files.
-1. Pull down the latest version of master and run `npm publish`.
+See [contributing] docs.
 
 [assemble]: https://github.com/helpers/handlebars-helpers
+[contributing]: ./CONTRIBUTING.md
 [drizzle-builder-options]: https://github.com/cloudfour/drizzle-builder#options
 [drizzle-builder]: https://www.npmjs.com/package/drizzle-builder
 [hbs-helpers]: https://github.com/cloudfour/core-hbs-helpers/tree/master/lib
