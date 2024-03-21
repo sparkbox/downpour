@@ -44,7 +44,7 @@ function printUpdatedFiles(tree, depth = 1) {
   }
 }
 
-module.exports = function patterns(opts, callback) {
+export default function patterns(opts, callback) {
   inform.start('☔️');
   _.defaultsDeep(opts, defaultOptions);
 
@@ -58,4 +58,4 @@ module.exports = function patterns(opts, callback) {
   shelljs.cp(path.resolve(`${__dirname}/../`, pkg.mainDrizzleCSS), path.resolve('.', opts.dest.css));
   shelljs.mkdir(path.resolve('.', opts.dest.js));
   shelljs.cp(path.resolve(`${__dirname}/../`, pkg.mainDrizzleJS), path.resolve('.', opts.dest.js));
-};
+}
