@@ -1,6 +1,7 @@
 name: 'CI'
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - opened
@@ -16,16 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Commit begins with supported commit type
-        uses: gsactions/commit-message-checker@v1
-        with:
-          pattern: '^(feat|fix|docs|style|refactor|test|chore).+'
-          error: 'Commit messages must begin with a valid commit type. See "Commit Style" under CONTRIBUTING.md for more details.'
-          excludeDescription: 'true'
-          excludeTitle: 'true'
-          checkAllCommitMessages: 'true'
-          accessToken: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v1
         with:
